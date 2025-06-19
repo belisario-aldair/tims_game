@@ -4,11 +4,13 @@ from constants import WIDTH, HEIGHT
 from screens.start_screen import start_screen
 from screens.game_screen import game_screen
 from screens.end_screen import end_screen
+from screens.credits_screen import credits_screen
+from screens.death_screen import death_screen
 
 def main():
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption("Mario-Like Game")
+    pygame.display.set_caption("Juego TIMS")
 
     state = "start"
     while True:
@@ -18,6 +20,10 @@ def main():
             state = game_screen(screen)
         elif state == "end":
             state = end_screen(screen)
+        elif state == "credits":
+            state = credits_screen(screen)
+        elif state == "death":
+            state = death_screen(screen)
         elif state == "exit":
             break
 
